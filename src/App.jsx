@@ -11,7 +11,7 @@ const [dice,setDice] = React.useState(allNewDice())
       newDice.push({
         id: uuidv4(),
         value: Math.ceil(Math.random() *6),
-        isHeld: true
+        isHeld: false
       })
     }
     // const newDice = Array(10).fill().map((array) => {
@@ -24,11 +24,15 @@ const [dice,setDice] = React.useState(allNewDice())
     return newDice
   }
 
+function holdDice(id) {
+  console.log(id)
+}
+
 function rollDice() {
   setDice(allNewDice())
 }
 
-  const diceElements = dice.map(die => <Die value={die.value} key={die.id} isHeld={die.isHeld}/>)
+  const diceElements = dice.map(die => <Die value={die.value} holdDice={() => holdDice(die.id)} key={die.id} isHeld={die.isHeld}/>)
 
 return (
   <div className="container">
