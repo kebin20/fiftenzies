@@ -1,12 +1,34 @@
 import React from "react"
 import Die from './Die'
+import { v4 as uuidv4 } from 'uuid';
 
 export default  function App() {
+const [dice,setDice] = React.useState(allNewDice())
 
   function allNewDice() {
-    const randomDiceArray = Array(10).fill().map(() => Math.floor(Math.random()*6) + 1)
-    return console.log(randomDiceArray)
+    const newDice = []
+    for (let i = 0; i < 15; i++) {
+      newDice.push({
+        id: uuidv4(),
+        value: Math.ceil(Math.random() *6),
+        isHeld: false
+      })
+    }
+    // const newDice = Array(10).fill().map((array) => {
+    //    return array.push({
+    //     value: Math.ceil(Math.random()*6),
+    //     isHeld: false,
+    //     id: uuidv4()
+    //   })
+    // })
+    return newDice
   }
+
+function rollDice() {
+  setDice(allNewDice())
+}
+
+  const diceElements = dice.map(die => <Die value={die.value} key={die.id} isHeld={die.isHeld}/>)
 
 return (
   <div className="container">
@@ -15,9 +37,9 @@ return (
       <p>Roll until all dice are the same. Click each die to freeze it at its current value between rolls</p>
     </div>
     <div className="dice-container">
-        <Die />
+      {diceElements}
     </div>
-    <button>Roll</button>
+    <button onClick={rollDice}>Roll</button>
   </div>
 )
 }
