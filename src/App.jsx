@@ -11,7 +11,7 @@ const [dice,setDice] = React.useState(allNewDice())
       newDice.push({
         id: uuidv4(),
         value: Math.ceil(Math.random() *6),
-        isHeld: false
+        isHeld: true
       })
     }
     // const newDice = Array(10).fill().map((array) => {
