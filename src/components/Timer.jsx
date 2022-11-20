@@ -4,7 +4,9 @@ import React from "react";
 export default function Timer(props) {
   return (
     <div className="timer">
+        <p>Time:</p>
       <span className="digits">
+      
         {("0" + Math.floor((props.time / 60000) % 60)).slice(-2)}:
       </span>
       <span className="digits">

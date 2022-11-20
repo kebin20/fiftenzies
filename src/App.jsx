@@ -79,6 +79,7 @@ function holdDice(id) {
   setDice(oldDice => oldDice.map(die => {
     return die.id === id ? {...die, isHeld: !die.isHeld} : die
   }))
+  handleStart()
 }
 
 function rollDice() {
@@ -87,7 +88,6 @@ function rollDice() {
       return die.isHeld ? die : getNewDice()
     }))
     setRolls(rolls + 1)
-    handleStart()
   } else {
     setTenzies(false)
     setDice(allNewDice())
@@ -101,6 +101,7 @@ const diceElements = dice.map(die => <Die value={die.value} holdDice={() => hold
 
 return (
   <div className="container">
+    {tenzies && <Confetti />}
     <div className="description">
       <h1>Fiftenzies</h1>
       <p>Roll until all dice are the same. Click each die to freeze it at its current value between rolls</p>
@@ -111,9 +112,9 @@ return (
     <div className="container__bottom-row">
       <Counter rolls={rolls}/>
       <button onClick={rollDice}>{tenzies ? "New Game" : "Roll"}</button>
-      {tenzies && <Confetti />}
       <Timer time={time}/>
     </div>
+    {tenzies && <Confetti />}
   </div>
 )
 }
