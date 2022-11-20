@@ -1,11 +1,16 @@
 import React from "react"
-import Die from './Die'
+
+import Die from './components/Die'
+import Counter from './components/Counter'
+
 import { v4 as uuidv4 } from 'uuid';
 import Confetti from 'react-confetti'
+
 
 export default  function App() {
 const [dice,setDice] = React.useState(allNewDice())
 const [tenzies, setTenzies] = React.useState(false)
+const [rolls, setRolls] = React.useState(0)
 
 React.useEffect(()=> {
 const allHeld = dice.every(die => die.isHeld)
@@ -50,9 +55,11 @@ function rollDice() {
     setDice(oldDice => oldDice.map(die => {
       return die.isHeld ? die : getNewDice()
     }))
+    setRolls(rolls + 1)
   } else {
     setTenzies(false)
     setDice(allNewDice())
+    setRolls(0)
   }
 
 }
@@ -68,6 +75,7 @@ return (
     <div className="dice-container">
       {diceElements}
     </div>
+    <Counter rolls={rolls}/>
     <button onClick={rollDice}>{tenzies ? "New Game" : "Roll"}</button>
     {tenzies && <Confetti />}
   </div>
