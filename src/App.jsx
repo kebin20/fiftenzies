@@ -13,7 +13,6 @@ const firstValue = dice[0].value
 const allSameValue  = dice.every(die => die.value === firstValue)
 if(allHeld && allSameValue) {
   setTenzies(true)
-  console.log("You won!")
 }
 },[dice])
 
@@ -47,9 +46,15 @@ function holdDice(id) {
 }
 
 function rollDice() {
-  setDice(oldDice => oldDice.map(die => {
-    return die.isHeld ? die : getNewDice()
-  }))
+  if (!tenzies) {
+    setDice(oldDice => oldDice.map(die => {
+      return die.isHeld ? die : getNewDice()
+    }))
+  } else {
+    setTenzies(false)
+    setDice(allNewDice())
+  }
+
 }
 
 const diceElements = dice.map(die => <Die value={die.value} holdDice={() => holdDice(die.id)} key={die.id} isHeld={die.isHeld}/>)
