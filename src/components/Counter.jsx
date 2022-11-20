@@ -3,9 +3,9 @@ import React from "react";
 
 export default function Counter(props) {
     return (
-        <div className="roll-count">
+        <div className="bottom-row__roll-count">
             <p>Number of rolls:</p>
-            <h3>{props.rolls}</h3>
+            <p className="bottom-row__roll-counter">{props.rolls}</p>
         </div>
     )
 }

@@ -75,9 +75,11 @@ return (
     <div className="dice-container">
       {diceElements}
     </div>
-    <Counter rolls={rolls}/>
-    <button onClick={rollDice}>{tenzies ? "New Game" : "Roll"}</button>
-    {tenzies && <Confetti />}
+    <div className="container__bottom-row">
+      <Counter rolls={rolls}/>
+      <button onClick={rollDice}>{tenzies ? "New Game" : "Roll"}</button>
+      {tenzies && <Confetti />}
+    </div>
   </div>
 )
 }

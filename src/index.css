@@ -49,14 +49,27 @@ p {
     cursor: pointer;
 }
 
+.container__bottom-row {
+    display: flex;
+    align-items: center;
+    gap: 1.5em;
+    margin-top: 1em;
+}
+
+.bottom-row__roll-counter {
+    font-weight: 700;
+    text-align: center;
+    margin: 0;
+}
+
 button {
-    margin-top: 2em;
-    padding: 0.8em 2em;
+    font-size: 0.8rem;
+    padding:  1em 2em;
     font-family: inherit;
     color: #FFFFFF;
     background: #5035FF;
     box-shadow: 0px 3.2px 7.68px rgba(0, 0, 0, 0.18);
-    border-radius: 4px;
+    border-radius: 6px;
     border: none;
     cursor: pointer;
 }
