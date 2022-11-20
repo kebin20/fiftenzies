@@ -1,85 +1,102 @@
 * {
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
-body {
+/* body {
     background-color: #0B2434;
+} */
+
+html,
+body {
+  background-color: #0b2434;
 }
 
-h1, p {
-    text-align: center;
-    margin: 0.5em;
+h1,
+p {
+  text-align: center;
+  margin: 0.5em;
 }
 
 h1 {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
+  border-bottom: 3px solid transparent;
+  border-image: linear-gradient(
+    to bottom right,
+    #40e305 0%,
+    #2c90fc 25%,
+    #ff02e3 50%,
+    #fec837 75%,
+    #30b31d 100%
+  );
+  border-image-slice: 1;
 }
 
 p {
-    font-size: 0.8rem;
+  font-size: 0.8rem;
 }
 
 .container {
-    background-color: #F5F5F5;
-    margin: 0 auto;
-    width: 370px;
-    height: 370px;
-    padding: 1em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 10px;
+  background-color: #f5f5f5;
+  margin: 0 auto;
+  width: 390px;
+  height: 390px;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
 }
 
 .dice-container {
-    display: grid;
-    grid-template-columns: repeat(5, 36px);
-    grid-template-rows: repeat(3, 36px);
-    grid-gap: 1em;
-    margin-top: 1em;
+  display: grid;
+  grid-template-columns: repeat(5, 36px);
+  grid-template-rows: repeat(3, 36px);
+  grid-gap: 1em;
+  margin-top: 1em;
 }
 
 .die-face {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
-    border-radius: 3.81277px;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
+  border-radius: 3.81277px;
+  cursor: pointer;
 }
 
 .container__bottom-row {
-    align-self: center;
-    display: flex;
-    align-items: center;
-    gap: 2em;
-    margin-top: 1em;
+  align-self: center;
+  display: flex;
+  align-items: center;
+  gap: 2em;
+  padding: 1.6em;
 }
 
 .bottom-row__roll-counter {
-    font-weight: 700;
-    text-align: center;
-    margin: 0;
+  font-weight: 700;
+  text-align: center;
+  margin: 0;
 }
 
 .timer {
-    text-align: center;
-    width: 55px;
+  text-align: center;
+  width: 55px;
 }
 
 .digits {
-    font-size: 0.8rem;
+  font-size: 0.8rem;
+  font-weight: 700;
 }
 
 button {
-    font-size: 0.8rem;
-    padding:  1em 2em;
-    font-family: inherit;
-    color: #FFFFFF;
-    background: #5035FF;
-    box-shadow: 0px 3.2px 7.68px rgba(0, 0, 0, 0.18);
-    border-radius: 6px;
-    border: none;
-    cursor: pointer;
+  font-size: 0.8rem;
+  padding: 1em 2em;
+  font-family: inherit;
+  color: #ffffff;
+  background: #5035ff;
+  box-shadow: 0px 3.2px 7.68px rgba(0, 0, 0, 0.18);
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
 }
