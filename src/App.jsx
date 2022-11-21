@@ -3,8 +3,9 @@ import React from "react"
 import Die from './components/Die'
 import Counter from './components/Counter'
 
+
 import { v4 as uuidv4 } from 'uuid';
-import Confetti from 'react-confetti'
+
 import Timer from './components/Timer'
 
 
@@ -100,8 +101,8 @@ function rollDice() {
 const diceElements = dice.map(die => <Die value={die.value} holdDice={() => holdDice(die.id)} key={die.id} isHeld={die.isHeld}/>)
 
 return (
+  <div>    
   <div className="container">
-    {tenzies && <Confetti />}
     <div className="description">
       <h1>Fiftenzies</h1>
       <p>Roll until all dice are the same. Click each die to freeze it at its current value between rolls</p>
@@ -114,7 +115,7 @@ return (
       <button onClick={rollDice}>{tenzies ? "New Game" : "Roll"}</button>
       <Timer time={time}/>
     </div>
-    {tenzies && <Confetti />}
+  </div>
   </div>
 )
 }
